@@ -8,7 +8,6 @@ from custom_msgs.msg import *
 class GulliViewServer:
 
     def __init__(self):
-        print "hi"
         rospy.init_node('gulliview', anonymous=True)
         self.gv_position_publisher = rospy.Publisher('gv_positions', GulliViewPositions, queue_size=10)
 
@@ -39,7 +38,7 @@ class GVSocketServer(SocketServer.BaseRequestHandler):
         print data
 
 if __name__ == "__main__":
-    HOST, PORT = "localhost", 2121
+    HOST, PORT = "192.168.1.109", 2121
 
     gv = GulliViewServer()
     server = SocketServer.UDPServer((HOST, PORT), GVSocketServer)
